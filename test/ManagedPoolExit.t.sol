@@ -26,9 +26,9 @@ contract ManagedPoolExitTest is Test {
         minAmountsOut[2] = 0;
 
         bytes memory userData = abi.encode(
-            uint256(0), // exit kind
+            uint256(0), // exit kind 0 = EXACT_BPT_IN_FOR_ONE_TOKEN_OUT
             uint256(1e16), // bpt amount
-            uint256(0) // token index
+            uint256(0) // token index (not accounting for the BPT, so we are exiting 0xf39217e37aC27194A73E182A71548F9A481f93A6)
         );
 
         bool toInternalBalance = false;
