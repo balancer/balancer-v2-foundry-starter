@@ -7,7 +7,7 @@ import {IAsset} from "@balancer-v2-monorepo/interfaces/vault/IAsset.sol";
 
 contract ManagedPoolExitTest is Test {
     function setUp() public {
-        vm.createSelectFork("wss://base-rpc.publicnode.com");
+        vm.createSelectFork("wss://base-rpc.publicnode.com", 26666735);
     }
 
     function test_ManagedPoolExit() public {
@@ -16,6 +16,7 @@ contract ManagedPoolExitTest is Test {
         address user = address(0xC0C7ec26cC1AA900a515e4BC993C714BAF0C58e9);
 
         IAsset[] memory assets = new IAsset[](3);
+        //we include the BPT address since managed pools have phantom BPT
         assets[0] = IAsset(address(0x545144e7e8171BA25ddDa20eB6a726c4E7F4c623));
         assets[1] = IAsset(address(0xf39217e37aC27194A73E182A71548F9A481f93A6));
         assets[2] = IAsset(address(0xFa49888C3f547126335Ae05De79c7Fc1252198cf));
